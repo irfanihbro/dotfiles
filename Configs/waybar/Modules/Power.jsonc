@@ -1,0 +1,10 @@
+{
+  "custom/power": {
+        "format" : "",
+        "tooltip": true,
+        "tooltip-format": "Power menu",
+        "on-click-right": "quickshell -p $HOME/.config/quickshell/power_menu/",
+	      "on-click": "pkill wlogout || wlogout",
+        "on-click-middle": "systemctl poweroff"
+   }
+}

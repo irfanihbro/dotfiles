@@ -1,0 +1,10 @@
+{
+  "cpu": {
+    "interval": 1,
+    "format": "   {}%",
+    "format-alt": "   {avg_frequency} GHz",
+    "on-click-right": "footclient --fullscreen --app-id btop -e btop",
+    "tooltip": true
+    }
+
+}

@@ -1,0 +1,56 @@
+[general]
+live_config_reload = true
+
+[window]
+dimensions = { columns = 140, lines = 35 }
+padding = { x = 30, y = 20 }
+decorations = "none"
+dynamic_padding = false
+blur = true
+opacity = 0.4
+
+[font]
+size = 14
+
+[font.normal]
+# family = "ProFont IIx Nerd Font Mono"
+# family = "FiraCode Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+family = "Google Sans Code NF"
+style = "Regular"
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "beam", blinking = "off" }
+thickness = 0.15
+
+[keyboard]
+bindings = [
+{ key = "V", mods = "Control", action = "Paste" },
+]
+
+[colors.primary]
+background = '#000000'
+foreground = '#ffffff'
+
+[colors.normal]
+black      = '#000000'
+red        = '#ff0000'
+green      = '#00ff00'
+blue       = '#0000ff'
+yellow     = '#ffff00'
+magenta    = '#ee82ee'
+cyan       = '#00ffff'
+white      = '#ffffff'
+
+[colors.bright]
+black      = '#bfbfbf'
+red        = '#ff0000'
+green      = '#00ff00'
+blue       = '#0000ff'
+yellow     = '#ffff00'
+magenta    = '#ee82ee'
+cyan       = '#00ffff'
+white      = '#ffffff'
