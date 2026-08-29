@@ -1,0 +1,2 @@
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_BUS}=="usb", ENV{DEVTYPE}=="disk", RUN+="/usr/local/bin/usb-sound.sh in"
+ACTION=="remove", SUBSYSTEM=="block", ENV{ID_BUS}=="usb", ENV{DEVTYPE}=="disk", RUN+="/usr/local/bin/usb-sound.sh out"

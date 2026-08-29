@@ -1,0 +1,140 @@
+# ==============================
+# Basic
+# ==============================
+alias c='clear'
+alias cat='bat'
+alias e='exit'
+alias reload='source ~/.bashrc'
+alias ls="eza -1h -s modified -r --icons=always --group-directories-first"
+alias bip="pacman -Qqe > ~/hobbyist-dotfiles/Configs/installed-pkg/pkglist.txt && echo 'Package names backed up'"
+# ==============================
+# Navigation
+# ==============================
+alias b='cd ..'
+alias h='cd'
+alias d='cd ~/Downloads'
+
+# ==============================
+# Fedora (dnf)
+# ==============================
+alias dnfup='sudo dnf upgrade --refresh'
+alias dnfi='sudo dnf install'
+alias dnfr='sudo dnf remove'
+
+# ==============================
+# Debian based
+# ==============================
+alias aptup='sudo apt update && sudo apt upgrade -y'
+alias apti='sudo apt install'
+alias aptr='sudo apt remove'
+
+# ==============================
+# Arch based
+# ==============================
+alias pacup='sudo timeshift --create --comments "Before update" --tags O && yay -Syu'
+alias paci='yay -S --needed'
+alias pacs='yay -Ss'
+alias pacr='yay -Rns --noconfirm'
+
+# ==============================
+# Power control
+# ==============================
+alias logout='loginctl terminate-user $USER'
+alias reboot='systemctl reboot'
+alias off='systemctl poweroff'
+alias suspend='systemctl suspend ; bash ~/.config/hypr/randomwall.sh'
+
+# ==============================
+# System
+# ==============================
+alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias ts='sudo timeshift --create --comments "Manual" --tags O'
+alias tsd='sudo timeshift --delete-all'
+alias tsl='sudo timeshift --list'
+alias timeshift='sudo timeshift-gtk'
+alias gparted='sudo -E gparted'
+alias ff='fastfetch'
+
+# ==============================
+# Network
+# ==============================
+alias wifi='nmtui'
+alias bt='bluetui'
+alias gc='git clone'
+alias send='bash ~/.config/Scripts/kde-send.sh'
+alias dl='python3 ~/.config/Scripts/ydl.py'
+
+PS1='\[\e[38;5;45m\]\u\[\e[0m\]@\[\e[38;5;40m\]\h\[\e[0m\]:\[\e[97m\]\w\[\e[0m\]\n\[\e[97m\]➤\[\e[0m\] '
+# PS1='\[\e[38;5;45m\]\u\[\e[0m\]@\[\e[38;5;40m\]\h\[\e[0m\] \w\[\e[0m\] '
+
+# eval "$(starship init bash)"
+
+shopt -s checkwinsize
+shopt -s histappend
+
+# Tab completion (enhanced)
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+
+# Enable bash completion
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+gacp() {
+    if [[ $# -eq 0 ]]; then
+        echo "Plz write commit message"
+        return 1
+    fi
+
+    cd ~/hobbyist-dotfiles/ || return 1
+    git add .
+
+    if git commit -m "$*"; then
+        git push
+    fi
+
+    cd ~
+}
+
+clean() {
+    local orphans
+    orphans=$(pacman -Qdtq)
+
+    if [[ -n "$orphans" ]]; then
+        echo "Removing orphan packages..."
+        sudo pacman -Rns --noconfirm $orphans
+    else
+        echo "No orphan packages"
+    fi
+
+    echo "Cleaning AUR dependencies..."
+    yay -Yc --noconfirm
+
+    echo "Cleaning package cache..."
+    sudo rm -rf /var/cache/pacman/pkg/download-*/
+
+    echo "Removing yay cache..."
+    rm -rf ~/.cache/yay
+
+    echo "Cleaning logs..."
+    sudo journalctl --vacuum-time=7d
+
+    echo "Cleanup done"
+}
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	command rm -f -- "$tmp"
+}
+
+cd() {
+    if [[ $# -gt 0 ]]; then
+        builtin cd "$@" && ls
+    else
+        builtin cd
+    fi
+}

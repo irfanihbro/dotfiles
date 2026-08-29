@@ -1,0 +1,12 @@
+{
+  "bluetooth": {
+	"format": "  ON",
+	"format-disabled": "  OFF",
+	"format-connected": "  {device_alias}",
+  "format-connected-battery": "  {device_alias} {device_battery_percentage}%",
+	"tooltip-format-connected": "You are connected to {device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}",
+  "on-click-middle": "rfkill toggle bluetooth",
+  "on-click-right": "footclient --app-id bluetui -e bluetui"
+  }
+}

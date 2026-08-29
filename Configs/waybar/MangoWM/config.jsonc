@@ -1,0 +1,37 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 6,
+  "reload_style_on_change": true,
+
+  "modules-left":[
+    "custom/logo",
+    "mpris",
+    "tray",
+    "ext/workspaces"
+],
+
+"custom/logo": {
+  "format" : "󰣇   MangoWM",
+  "tooltip": false,
+  "tooltip-format": "App launcher",
+  "on-click": "pkill rofi || rofi -show drun",
+  "on-click-right": "foot"
+},
+
+"ext/workspaces": {
+  "format": "{icon}",
+  "format-icons": {
+    "active": "",
+    "default": ""
+  },
+  "ignore-hidden": true,
+  "on-click": "activate",
+  "on-click-right": "deactivate",
+  "sort-by-id": true
+},
+
+"include": [
+  "~/.config/waybar/Modules/*.jsonc"
+]
+}

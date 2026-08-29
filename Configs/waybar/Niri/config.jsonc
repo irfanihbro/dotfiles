@@ -1,0 +1,36 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 6,
+  "reload_style_on_change": true,
+
+  "modules-left":[
+    "custom/logo",
+    "mpris",
+    "tray",
+    "niri/workspaces"
+  ],
+
+  "custom/logo": {
+    "format" : "󰣇   Niri",
+    "tooltip": false,
+    "tooltip-format": "App launcher",
+    "on-click": "pkill rofi || rofi -show drun",
+    "on-click-right": "foot",
+    "on-click-middle": "niri msg action close-window",
+    "on-scroll-up": "niri msg action focus-column-left",
+    "on-scroll-down": "niri msg action focus-column-right"
+  },
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": { "active": "", "default": "" },
+    "on-click-middle": "niri msg action maximize-column",
+    "on-scroll-up": "niri msg action focus-workspace-up",
+    "on-scroll-down": "niri msg action focus-workspace-down"
+  },
+
+  "include": [
+    "~/.config/waybar/Modules/*.jsonc"
+  ]
+}

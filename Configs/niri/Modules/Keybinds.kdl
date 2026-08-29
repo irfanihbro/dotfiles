@@ -1,0 +1,167 @@
+binds {
+    Mod+A {spawn-sh "bash $HOME/.config/Scripts/auto_detect_terminal.sh";}
+    Mod+B {spawn "zen-browser";}
+    Mod+C {spawn-sh "bash $HOME/.config/Scripts/rofi_clipboard.sh";}
+    Mod+D {spawn-sh "pkill thunar || thunar";}
+    Mod+E {spawn-sh "pkill bluetui || foot --app-id bluetui -e bluetui";}
+    Mod+F {maximize-column;}
+    Mod+G {spawn-sh "pkill btop || foot --app-id btop -e btop";}
+    Mod+H {focus-column-left;}
+    Mod+I {focus-workspace-down;}
+    Mod+J {focus-window-down;}
+    Mod+K {focus-window-up;}
+    Mod+L {focus-column-right;}
+    Mod+M {spawn "Telegram";}
+    Mod+N {spawn-sh "footclient --app-id yazi -e yazi";}
+    Mod+O repeat=false {toggle-overview;}
+    Mod+P {spawn-sh "pkill wlogout || wlogout";}
+    Mod+Q repeat=true {close-window;}
+    Mod+R {spawn-sh "pkill waybar || waybar -c $HOME/.config/waybar/Niri/config.jsonc -s $HOME/.config/waybar/style.css &";}
+    Mod+S {spawn "strawberry";}
+    Mod+T {spawn "kitty";}
+    Mod+U {focus-workspace-up;}
+    Mod+V {toggle-window-floating;}
+    Mod+W repeat=false {spawn-sh "bash $HOME/.config/Scripts/random_wall_on_home.sh";}
+    Mod+X repeat=false {spawn-sh "pkill cmus || foot --app-id cmus -e cmus";}
+    Mod+Y {spawn-sh "pkill nmtui || foot --app-id nmtui -e nmtui";}
+    Mod+Z repeat=false {spawn-sh "pkill localsend || localsend";}
+
+    Alt+A {expand-column-to-available-width;}
+    Alt+B allow-when-locked=true {spawn-sh "playerctl position 1+";}
+    Alt+C allow-when-locked=true {spawn-sh "playerctl play-pause";}
+    Alt+D repeat=false {spawn-sh "rfkill toggle all";}
+    Alt+E repeat=false {spawn-sh "rfkill toggle bluetooth";}
+    Alt+F {maximize-window-to-edges;}
+    Alt+G {spawn-sh "pkill nwg-look || nwg-look";}
+    Alt+H {spawn-sh "niri msg action power-off-monitors";}
+    Alt+I {spawn-sh "notify-send 'Not registered'";}
+    Alt+J {spawn-sh "notify-send 'Not registered'";}
+    Alt+K {spawn-sh "pkill kdeconnect-app || kdeconnect-app";}
+    Alt+L repeat=false {spawn-sh "bash ~/.config/Scripts/random_wall_on_lockscr.sh";}
+    Alt+M {fullscreen-window;}
+    Alt+N {spawn-sh "niri msg action load-config-file && notify-send 'Config reloaded'";}
+    Alt+O repeat=false {spawn-sh "systemctl poweroff";}
+    Alt+P {spawn-sh "notify-send 'Not registered'";}
+    Alt+Q repeat=false {spawn-sh "foot -c $HOME/.config/foot/foot_for_cava.ini --app-id cava -e cava";}
+    Alt+R repeat=false {spawn-sh "systemctl reboot";}
+    Alt+S repeat=false {spawn-sh "systemctl suspend ; bash ~/.config/Scripts/random_wall_on_lockscr.sh";}
+    Alt+T {spawn-sh "notify-send 'Not registered'";}
+    Alt+U {spawn-sh "notify-send 'Not registered'";}
+    Alt+V allow-when-locked=true {spawn-sh "playerctl next";}
+    Alt+W repeat=false {spawn-sh "pkill rofi || bash $HOME/.config/Scripts/wallpaper_switcher.sh";}
+    Alt+X allow-when-locked=true {spawn-sh "playerctl previous";}
+    Alt+Y repeat=false {spawn-sh "rfkill toggle wifi";}
+    Alt+Z allow-when-locked=true {spawn-sh "playerctl position 1-";}
+
+    Mod+Ctrl+R {spawn-sh "bash $HOME/.config/Scripts/partial_screenshot.sh";}
+    Mod+Ctrl+S {spawn-sh "bash $HOME/.config/Scripts/full_screenshot.sh";}
+    Mod+Alt+B {spawn "helium-browser";}
+    Mod+Alt+N {spawn-sh "pkill thunar || thunar";}
+    Mod+Shift+R {spawn-sh "bash $HOME/.config/Scripts/screen_recorder.sh";}
+    Mod+Space {spawn-sh "pkill rofi || rofi -show drun";}
+    //Shift+Return {spawn-sh "pkill aichat || foot --app-id aichat -e aichat";}
+    Alt+Return {spawn-sh "bash $HOME/.config/Scripts/dashboard_toggle.sh";}
+    Mod+Return {spawn-sh "bash $HOME/.config/Scripts/auto_detect_terminal.sh";}
+    Mod+Backslash {spawn-sh "bash $HOME/.config/Scripts/smassh.sh";}
+    Mod+Delete {spawn-sh "cliphist wipe";}
+
+    XF86AudioRaiseVolume allow-when-locked=true {spawn-sh "wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 10%+ && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga";}
+    XF86AudioLowerVolume allow-when-locked=true {spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga";}
+    XF86AudioMute repeat=false allow-when-locked=true {spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";}
+    XF86AudioMicMute repeat=false allow-when-locked=true {spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";}
+
+    XF86AudioPlay        allow-when-locked=true {spawn-sh "playerctl play-pause";}
+    XF86AudioStop        allow-when-locked=true {spawn-sh "playerctl stop";}
+    XF86AudioPrev        allow-when-locked=true {spawn-sh "playerctl previous";}
+    XF86AudioNext        allow-when-locked=true {spawn-sh "playerctl next";}
+
+    XF86MonBrightnessUp allow-when-locked=true {spawn "brightnessctl" "--class=backlight" "set" "+10%";}
+    XF86MonBrightnessDown allow-when-locked=true {spawn "brightnessctl" "--class=backlight" "set" "10%-";}
+    Alt+apostrophe allow-when-locked=true {spawn "brightnessctl" "--class=backlight" "set" "+10%";}
+    Alt+semicolon allow-when-locked=true {spawn "brightnessctl" "--class=backlight" "set" "10%-";}
+
+    Alt+BracketRight allow-when-locked=true {spawn-sh "wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 10%+ && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga";}
+    Alt+BracketLeft allow-when-locked=true {spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga";}
+    Alt+slash repeat=false allow-when-locked=true {spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";}
+    Alt+backslash repeat=false allow-when-locked=true {spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";}
+    Alt+Period allow-when-locked=true {spawn-sh "bash $HOME/.config/Scripts/full_screenshot.sh";}
+    Alt+Comma allow-when-locked=true {spawn-sh "bash $HOME/.config/Scripts/partial_screenshot.sh";}
+
+    Mod+Left  {focus-column-left;}
+    Mod+Right {focus-column-right;}
+    Mod+Up    {focus-workspace-up;}
+    Mod+Down  {focus-workspace-down;}
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Shift+Home  { move-column-to-first; }
+    Mod+Shift+End   { move-column-to-last; }
+
+    Mod+Shift+U     { move-workspace-down; }
+    Mod+Shift+I     { move-workspace-up; }
+
+    Mod+Shift+Left  {move-column-left;}
+    Mod+Shift+Down  {move-window-down;}
+    Mod+Shift+Up    {move-window-up;}
+    Mod+Shift+Right {move-column-right;}
+    Mod+Shift+H     {move-column-left;}
+    Mod+Shift+J     {move-window-down;}
+    Mod+Shift+K     {move-window-up;}
+    Mod+Shift+L     {move-column-right;}
+
+    Mod+Shift+Q {spawn-sh "pid=$(niri msg -j focused-window | jq '.pid'); kill $pid; sleep 0.5; kill -9 $pid 2>/dev/null";}
+
+    Mod+WheelScrollDown      cooldown-ms=150 {focus-workspace-down;}
+    Mod+WheelScrollUp        cooldown-ms=150 {focus-workspace-up;}
+    Mod+Shift+WheelScrollDown      {focus-column-right;}
+    Mod+Shift+WheelScrollUp        {focus-column-left;}
+
+    Mod+1 {focus-workspace 1;}
+    Mod+2 {focus-workspace 2;}
+    Mod+3 {focus-workspace 3;}
+    Mod+4 {focus-workspace 4;}
+    Mod+5 {focus-workspace 5;}
+    Mod+6 {focus-workspace 6;}
+    Mod+7 {focus-workspace 7;}
+    Mod+8 {focus-workspace 8;}
+    Mod+9 {focus-workspace 9;}
+
+    Mod+Shift+1 {move-column-to-workspace 1;}
+    Mod+Shift+2 {move-column-to-workspace 2;}
+    Mod+Shift+3 {move-column-to-workspace 3;}
+    Mod+Shift+4 {move-column-to-workspace 4;}
+    Mod+Shift+5 {move-column-to-workspace 5;}
+    Mod+Shift+6 {move-column-to-workspace 6;}
+    Mod+Shift+7 {move-column-to-workspace 7;}
+    Mod+Shift+8 {move-column-to-workspace 8;}
+    Mod+Shift+9 {move-column-to-workspace 9;}
+
+    Mod+BracketLeft  {consume-or-expel-window-left;}
+    Mod+BracketRight {consume-or-expel-window-right;}
+
+    Mod+Comma  {consume-window-into-column;}
+    Mod+Period {expel-window-from-column;}
+
+
+    Mod+Minus {set-column-width "-10%";}
+    Mod+Equal {set-column-width "+10%";}
+    Mod+Shift+Minus {set-window-height "-10%";}
+    Mod+Shift+Equal {set-window-height "+10%";}
+
+    Mod+Shift+V {switch-focus-between-floating-and-tiling;}
+
+    Mod+Tab { switch-preset-column-width; }
+    Mod+Shift+Tab { switch-preset-window-height; }
+    Mod+Grave { switch-preset-window-height; }
+    Mod+0 { reset-window-height; }
+
+    // Print {screenshot-screen;}
+    // Mod+Print {screenshot;}
+    // Ctrl+Print {screenshot-window;}
+    Print repeat=false {spawn-sh "bash $HOME/.config/Scripts/full_screenshot.sh";}
+    Alt+Print repeat=false {spawn-sh "bash $HOME/.config/Scripts/partial_screenshot.sh";}
+    Ctrl+Print repeat=false {spawn-sh "bash $HOME/.config/Scripts/screen_recorder.sh";}
+
+    Mod+ctrl+E repeat=false {quit skip-confirmation=true;}
+    Mod+Escape repeat=false {quit skip-confirmation=true;}
+  }
